@@ -13,4 +13,10 @@ class AppSizes {
   static const double screenPadding = 276.0;
   static const double horizontalPadding = 20.0;
   static const double verticalPadding = 12.0;
+
+  static const double spacingXs = 20;
+  static const double spacingSm = 36;
+  static const double spacingMd = 36;
+  static const double spacingLg = 36;
+  static const double spacingXl = 36;
 }

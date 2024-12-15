@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/components/phase_uri.dart';
 import 'package:portfolio/core/app_texts.dart';
+import 'package:portfolio/core/theme/sizes.dart';
 import 'package:portfolio/core/theme/text_theme.dart';
 
 class AboutMeSection extends StatelessWidget {
@@ -16,17 +17,17 @@ class AboutMeSection extends StatelessWidget {
             flex: 6,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const Text(
                   'Sobre mim',
                   style: TextStyle(
-                    fontSize: 32,
+                    fontSize: 42,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: AppSizes.spacingXs),
                 ...AppTexts.aboutMe.map(
                   (paragraph) => Padding(
                     padding: const EdgeInsets.only(

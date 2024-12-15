@@ -113,7 +113,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
       child: isSelected
           ? Text(
               title,
-              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                     color: AppColors.primary,
                     fontWeight: FontWeight.w800,
                   ),
@@ -122,7 +122,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
               cursor: SystemMouseCursors.click,
               child: Text(
                 title,
-                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                       fontWeight: FontWeight.w400,
                     ),
               ),

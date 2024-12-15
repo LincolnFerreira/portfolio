@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:meta_seo/meta_seo.dart';
 import 'package:portfolio/components/about_me.dart';
 import 'package:portfolio/components/back-end_session.dart';
+import 'package:portfolio/components/background_icon_space.dart';
 import 'package:portfolio/components/carousel_logos.dart';
-import 'package:portfolio/components/carousel_test.dart';
+import 'package:portfolio/components/circle_blur.dart';
+import 'package:portfolio/components/footer.dart';
 import 'package:portfolio/components/header_component.dart';
+import 'package:portfolio/components/mobile_session.dart';
 import 'package:portfolio/components/responsive/header.dart';
-import 'package:portfolio/components/teste.dart';
+import 'package:portfolio/components/shimmer_arrows.dart';
 import 'package:portfolio/core/seo/seo.dart';
+import 'package:portfolio/mocks/mobile_mock_data.dart';
 
 class HomePage extends StatefulWidget implements Seo {
   const HomePage({super.key, required this.title});
@@ -31,13 +35,9 @@ class _HomePageState extends State<HomePage> {
   String selectedLanguage = 'PT';
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
-    final size = MediaQuery.of(context).size;
-
-    // Dimensões relativas da tela
-    double width = size.width;
-    double height = size.height;
     return Scaffold(
+      extendBody: true,
+      extendBodyBehindAppBar: true,
       backgroundColor: const Color(0xff12171D),
       appBar: Header(
         onLanguageChanged: (p0) {},
@@ -45,86 +45,74 @@ class _HomePageState extends State<HomePage> {
         selectedLanguage: "",
         selectedSection: "",
       ),
-      body: Stack(
-        children: [
-          SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 276.0),
-              child: Column(
-                children: <Widget>[
-                  const SizedBox(height: 80),
-                  const HeaderComponent(),
-                  const SizedBox(height: 120),
-                  const SkillsTab(),
-                  const SizedBox(height: 120),
-                  const Icon(
-                    Icons.abc,
-                    color: Colors.white,
-                  ),
-                  const SizedBox(height: 80),
-                  const AboutMeSection(),
-                  const SizedBox(height: 80),
-                  const Icon(
-                    Icons.abc,
-                    color: Colors.white,
-                  ),
-                  const SizedBox(height: 100),
-                  const Column(
-                    children: [
-                      SizedBox(
-                        height: 400,
-                        child: Perspective3DCarousel(),
+      body: SingleChildScrollView(
+        child: Stack(
+          children: [
+            const CircleBlur(
+              verticalPercentage: 10,
+              horizontalPercentage: 76,
+            ),
+            const CircleBlur(
+              verticalPercentage: 90,
+              horizontalPercentage: -10,
+            ),
+            const CircleBlur(
+              verticalPercentage: 150,
+              horizontalPercentage: 50,
+            ),
+            // CircleBlur(
+            //   verticalPercentage: 260,
+            //   horizontalPercentage: 76,
+            // ),
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 276.0),
+                  child: Column(
+                    children: <Widget>[
+                      const SpaceHeight(height: 100),
+                      const HeaderComponent(),
+                      const SpaceHeight(height: 120),
+                      const SkillsTab(),
+                      const SpaceHeight(height: 60),
+                      const ShimmerArrows(
+                        spaceTop: 60,
+                        spaceBottom: 200,
                       ),
+                      const AboutMeSection(),
+                      const SpaceHeight(height: 200),
+                      const ShimmerArrows(spaceTop: 200, spaceBottom: 200),
+                      const SpaceHeight(height: 200),
+                      MobileSession(title: "Mobile", items: items),
+                      const SpaceHeight(height: 200),
+                      const ShimmerArrows(spaceTop: 200, spaceBottom: 200),
+                      const SpaceHeight(height: 200),
+                      const BackEndSession(),
                     ],
                   ),
-                  const SizedBox(height: 40),
-                  const Text(
-                    'Resilience Muscle',
-                    style: TextStyle(fontSize: 26),
-                  ),
-                  const SizedBox(height: 40),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Group49(
-                          title: 'Projeto',
-                          description:
-                              'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-                          iconPath: 'assets/Orion_code-fork.svg',
-                          onTap: () {
-                            print('Card clicado!');
-                          },
-                        ),
-                        Group49(
-                          title: 'Arquitetura',
-                          description:
-                              'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-                          iconPath: 'assets/Orion_code-fork.svg',
-                          onTap: () {
-                            print('Card clicado!');
-                          },
-                        ),
-                        Group49(
-                          title: 'Stack',
-                          description:
-                              'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-                          iconPath: 'assets/Orion_code-fork.svg',
-                          onTap: () {
-                            print('Card clicado!');
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
-                  const BackEndSession()
-                ],
-              ),
+                ),
+                const ShimmerArrows(spaceTop: 100),
+                const CustomFooter(),
+              ],
             ),
-          ),
-        ],
+          ],
+        ),
       ),
+    );
+  }
+}
+
+class SpaceHeight extends StatelessWidget {
+  final double height;
+  const SpaceHeight({
+    super.key,
+    required this.height,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: height,
     );
   }
 }

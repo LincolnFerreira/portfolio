@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:portfolio/components/mobile_session.dart';
 
 class Perspective3DCarousel extends StatefulWidget {
-  const Perspective3DCarousel({Key? key}) : super(key: key);
+  final List<MobileItemData> items;
+  final int selectedItem;
+  final ValueChanged<int> onItemSelected;
+
+  const Perspective3DCarousel(
+      {super.key,
+      required this.items,
+      required this.selectedItem,
+      required this.onItemSelected});
 
   @override
   State<Perspective3DCarousel> createState() => _Perspective3DCarouselState();
@@ -19,6 +28,7 @@ class _Perspective3DCarouselState extends State<Perspective3DCarousel> {
     _pageController.addListener(() {
       setState(() {
         _currentPage = _pageController.page!;
+        widget.onItemSelected(_currentPage.toInt());
       });
     });
   }
@@ -38,7 +48,7 @@ class _Perspective3DCarouselState extends State<Perspective3DCarousel> {
           children: [
             PageView.builder(
               controller: _pageController,
-              itemCount: 10,
+              itemCount: widget.items.length,
               itemBuilder: (context, index) {
                 final double difference = (_currentPage - index);
 
@@ -53,7 +63,7 @@ class _Perspective3DCarouselState extends State<Perspective3DCarousel> {
                     : 1 - (difference.abs() * 0.1);
 
                 final double opacity = 1 - (difference.abs() * 0.3);
-
+                final item = widget.items[index];
                 return GestureDetector(
                   onTap: () {
                     _pageController.animateToPage(
@@ -76,7 +86,7 @@ class _Perspective3DCarouselState extends State<Perspective3DCarousel> {
                               child: SizedBox(
                                 height: 492,
                                 child: SvgPicture.asset(
-                                  'assets/resilience.svg',
+                                  item.imagePath,
                                   fit: BoxFit.contain,
                                 ),
                               ),

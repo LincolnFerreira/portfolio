@@ -43,6 +43,7 @@ dependencies:
   google_fonts: 6.1.0
   carousel_slider: ^5.0.0
   overlapped_carousel: ^1.0.2
+  outline_gradient_button: ^2.0.1+1
 
 dev_dependencies:
   flutter_test:

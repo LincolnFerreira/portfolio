@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/components/skill_card_item.dart';
 import 'package:portfolio/core/theme/colors.dart';
+import 'package:portfolio/core/theme/sizes.dart';
 
 class BackEndSession extends StatelessWidget {
   const BackEndSession({super.key});
@@ -14,6 +16,16 @@ class BackEndSession extends StatelessWidget {
           const Text(
             'Back-end',
             style: TextStyle(fontSize: 42),
+          ),
+          const SizedBox(height: AppSizes.spacingXs),
+          const FractionallySizedBox(
+            alignment: Alignment.center,
+            widthFactor: 0.5,
+            child: Text(
+              'Vou simular um ambiente similar ou conceitos que utilizei em outra empresas, de maneira mais simples.',
+              style: TextStyle(fontSize: 18),
+              textAlign: TextAlign.center,
+            ),
           ),
           const SizedBox(height: 100),
           Expanded(
@@ -52,28 +64,66 @@ class BackEndSession extends StatelessWidget {
                             fontSize: 20,
                           ),
                         ),
+                        const SizedBox(height: 40),
+                        const Row(children: [
+                          SkillCardItem(
+                              image:
+                                  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"),
+                          SkillCardItem(
+                              image:
+                                  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nestjs/nestjs-original.svg"),
+                          SkillCardItem(
+                              image:
+                                  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prisma/prisma-original.svg"),
+                          SkillCardItem(
+                              image:
+                                  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg"),
+                          SkillCardItem(
+                              image:
+                                  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg"),
+                        ])
                       ],
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 600,
-                  width: 700,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: AppColors.background
-                            .withOpacity(0.3), // Cor branca com transparência
-                        width: 1, // Espessura da borda
+                Container(
+                  height: 800,
+                  width: 800,
+                  decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(8),
+                        bottomLeft: Radius.circular(8),
                       ),
-                      borderRadius: BorderRadius.circular(
-                          16), // Raio de borda arredondada
-                    ),
-                    clipBehavior: Clip
-                        .antiAlias, // Garante que o conteúdo respeite o raio
-                    child: Image.asset(
-                      'assets/image.jpg',
-                      fit: BoxFit.fill,
+                      boxShadow: [
+                        BoxShadow(
+                          offset: Offset(4, 1),
+                          blurRadius: 0,
+                          spreadRadius: 1,
+                        )
+                      ]),
+                  child: ShaderMask(
+                    shaderCallback: (Rect bounds) {
+                      return const LinearGradient(
+                        colors: [
+                          Colors.black,
+                          Color.fromARGB(249, 0, 0, 0),
+                          Color.fromARGB(239, 0, 0, 0),
+                          Color.fromARGB(38, 0, 0, 0),
+                        ],
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
+                      ).createShader(bounds);
+                    },
+                    blendMode: BlendMode.dstIn,
+                    child: ClipRRect(
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(8),
+                        bottomLeft: Radius.circular(8),
+                      ),
+                      child: Image.asset(
+                        'image.jpeg',
+                        fit: BoxFit.fill,
+                      ),
                     ),
                   ),
                 ),

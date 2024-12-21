@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/components/responsive/responsive.dart';
+import 'package:portfolio/core/app_texts.dart';
 import 'package:portfolio/core/device/device_utils.dart';
 import 'package:portfolio/core/theme/colors.dart';
 import 'package:portfolio/core/theme/sizes.dart';
@@ -52,33 +53,45 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
               )
             : null,
         title: ResponsiveWidget(
-          mobileWidget: Center(
+          mobileWidget: const Center(
             child: Text('Mobile View'),
           ),
-          tabletWidget: Center(
+          tabletWidget: const Center(
             child: Text('Tablet View'),
           ),
           desktopWidget: Center(
-            child: Row(
-              children: [
-                _menuItem(
-                  'Projetos',
-                  selectedSection,
-                  context,
+            child: Align(
+              alignment: Alignment.centerLeft, // Alinha tudo à esquerda
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width *
+                    0.3, // Define a largura máxima do Row
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment
+                      .spaceEvenly, // Espaçamento igual entre os itens
+                  children: [
+                    _menuItem(
+                      "Inicio",
+                      selectedSection,
+                      context,
+                    ),
+                    _menuItem(
+                      AppTexts.projects.title,
+                      selectedSection,
+                      context,
+                    ),
+                    _menuItem(
+                      AppTexts.aboutMe.title,
+                      selectedSection,
+                      context,
+                    ),
+                    _menuItem(
+                      AppTexts.contact.title,
+                      selectedSection,
+                      context,
+                    ),
+                  ],
                 ),
-                const SizedBox(width: menuSpacing),
-                _menuItem(
-                  'Sobre Mim',
-                  selectedSection,
-                  context,
-                ),
-                const SizedBox(width: menuSpacing),
-                _menuItem(
-                  'Contato',
-                  selectedSection,
-                  context,
-                ),
-              ],
+              ),
             ),
           ),
         ),

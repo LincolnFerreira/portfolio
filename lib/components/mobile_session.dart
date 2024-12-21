@@ -18,7 +18,16 @@ class MobileSession extends StatefulWidget {
 }
 
 class _MobileSessionState extends State<MobileSession> {
-  int _selectedItem = 0;
+  int _selectedItem = 3;
+
+  @override
+  void initState() {
+    super.initState();
+    setState(() {
+      _selectedItem = 3;
+    });
+    print("Selected item: $_selectedItem");
+  }
 
   void _handleItemSelected(int index) {
     setState(() {

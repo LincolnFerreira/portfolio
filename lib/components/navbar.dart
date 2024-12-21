@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/core/app_texts.dart';
 import 'package:portfolio/core/theme/colors.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
@@ -54,19 +55,24 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
           title: Row(
             children: [
               _menuItem(
-                'Projetos',
+                AppTexts.projects.title,
+                selectedSection,
+                context,
+              ),
+              _menuItem(
+                AppTexts.projects.title,
                 selectedSection,
                 context,
               ),
               const SizedBox(width: menuSpacing),
               _menuItem(
-                'Sobre Mim',
+                AppTexts.aboutMe.title,
                 selectedSection,
                 context,
               ),
               const SizedBox(width: menuSpacing),
               _menuItem(
-                'Contato',
+                AppTexts.contact.title,
                 selectedSection,
                 context,
               ),

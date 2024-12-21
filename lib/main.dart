@@ -31,10 +31,12 @@ class MyApp extends StatelessWidget {
       ],
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-        textTheme: AppTextTheme.textTheme,
-      ),
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+          textTheme: AppTextTheme.textTheme,
+          scrollbarTheme: const ScrollbarThemeData().copyWith(
+            thumbColor: WidgetStateProperty.all(Colors.grey[500]),
+          )),
       routerConfig: Routers.router,
       builder: (context, child) => ResponsiveBreakpoints.builder(
         breakpoints: [

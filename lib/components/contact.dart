@@ -6,12 +6,12 @@ class ContactSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomPaint(
+      foregroundPainter: RPSCustomPainter(),
       child: Container(
         width: 800,
         height: 200,
         color: Colors.amberAccent,
       ),
-      foregroundPainter: RPSCustomPainter(),
     );
   }
 }

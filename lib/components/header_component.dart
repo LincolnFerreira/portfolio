@@ -109,27 +109,30 @@ class SocialIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        GestureDetector(
-          onTap: () {
-            // Lógica para abrir o link de rede social
-          },
-          child: Icon(
-            icon,
-            color: Colors.white,
-            size: 30,
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      child: Column(
+        children: [
+          GestureDetector(
+            onTap: () {
+              // Lógica para abrir o link de rede social
+            },
+            child: Icon(
+              icon,
+              color: Colors.white,
+              size: 30,
+            ),
           ),
-        ),
-        const SizedBox(height: 4),
-        Text(
-          label,
-          style: const TextStyle(
-            color: Color(0xFFB0BEC5),
-            fontSize: 16,
+          const SizedBox(height: 4),
+          Text(
+            label,
+            style: const TextStyle(
+              color: Color(0xFFB0BEC5),
+              fontSize: 16,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

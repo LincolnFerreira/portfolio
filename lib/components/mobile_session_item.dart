@@ -85,37 +85,34 @@ class _MobileSessionItemState extends State<MobileSessionItem> {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(0.0),
-                child: Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(widget.title),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      widget.images == null
-                          ? Text(
-                              widget.description,
-                              style: TextStyle(
-                                color: Colors.white.withOpacity(0.7),
-                                fontSize: 14,
-                                fontFamily: 'Inter',
-                                fontWeight: FontWeight.w300,
-                                height: 1.2,
-                              ),
-                            )
-                          : Row(
-                              children: widget.images!.map(
-                                (item) {
-                                  return SkillCardItem(image: item);
-                                },
-                              ).toList(),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(widget.title),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    widget.images == null
+                        ? Text(
+                            widget.description,
+                            style: TextStyle(
+                              color: Colors.white.withOpacity(0.7),
+                              fontSize: 14,
+                              fontFamily: 'Inter',
+                              fontWeight: FontWeight.w300,
+                              height: 1.2,
                             ),
-                    ],
-                  ),
+                          )
+                        : Row(
+                            children: widget.images!.map(
+                              (item) {
+                                return SkillCardItem(image: item);
+                              },
+                            ).toList(),
+                          ),
+                  ],
                 ),
               ),
             ],

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:meta_seo/meta_seo.dart';
 import 'package:portfolio/components/about_me.dart';
 import 'package:portfolio/components/back-end_session.dart';
-import 'package:portfolio/components/background_icon_space.dart';
 import 'package:portfolio/components/carousel_logos.dart';
 import 'package:portfolio/components/circle_blur.dart';
 import 'package:portfolio/components/footer.dart';
@@ -60,10 +59,6 @@ class _HomePageState extends State<HomePage> {
               verticalPercentage: 150,
               horizontalPercentage: 50,
             ),
-            // CircleBlur(
-            //   verticalPercentage: 260,
-            //   horizontalPercentage: 76,
-            // ),
             Column(
               children: [
                 Padding(
@@ -74,24 +69,27 @@ class _HomePageState extends State<HomePage> {
                       const HeaderComponent(),
                       const SpaceHeight(height: 120),
                       const SkillsTab(),
-                      const SpaceHeight(height: 60),
                       const ShimmerArrows(
-                        spaceTop: 60,
+                        spaceTop: 100,
                         spaceBottom: 200,
                       ),
                       const AboutMeSection(),
-                      const SpaceHeight(height: 200),
-                      const ShimmerArrows(spaceTop: 200, spaceBottom: 200),
-                      const SpaceHeight(height: 200),
+                      const ShimmerArrows(
+                        spaceTop: 200,
+                        spaceBottom: 200,
+                      ),
                       MobileSession(title: "Mobile", items: items),
-                      const SpaceHeight(height: 200),
-                      const ShimmerArrows(spaceTop: 200, spaceBottom: 200),
-                      const SpaceHeight(height: 200),
+                      const ShimmerArrows(
+                        spaceTop: 300,
+                        spaceBottom: 100,
+                      ),
                       const BackEndSession(),
                     ],
                   ),
                 ),
-                const ShimmerArrows(spaceTop: 100),
+                const ShimmerArrows(
+                  spaceTop: 200,
+                ),
                 const CustomFooter(),
               ],
             ),

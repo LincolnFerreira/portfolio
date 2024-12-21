@@ -18,18 +18,30 @@ class Perspective3DCarousel extends StatefulWidget {
 }
 
 class _Perspective3DCarouselState extends State<Perspective3DCarousel> {
-  final PageController _pageController =
-      PageController(initialPage: 3, viewportFraction: 0.3);
-  double _currentPage = 3.0;
+  late PageController _pageController;
+  late double _currentPage;
 
   @override
   void initState() {
     super.initState();
-    _pageController.addListener(() {
-      setState(() {
-        _currentPage = _pageController.page!;
-        widget.onItemSelected(_currentPage.toInt());
+
+    // Queremos começar no terceiro item (índice 2)
+    const int initialPageIndex = 2;
+
+    _pageController =
+        PageController(initialPage: initialPageIndex, viewportFraction: 0.3);
+    _currentPage = initialPageIndex.toDouble();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _pageController.addListener(() {
+        setState(() {
+          _currentPage = _pageController.page!;
+          widget.onItemSelected(_currentPage.toInt());
+        });
       });
+
+      // Forçar alinhamento inicial
+      _pageController.jumpToPage(initialPageIndex);
     });
   }
 

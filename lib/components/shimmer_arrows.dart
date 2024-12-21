@@ -60,7 +60,7 @@ class _ShimmerArrowsState extends State<ShimmerArrows>
                     .min, // Garante que os ícones não ocupem espaço extra
                 children: [
                   Container(
-                    child: Icon(
+                    child: const Icon(
                       Icons.keyboard_double_arrow_down,
                       size: 50,
                     ),
@@ -70,7 +70,7 @@ class _ShimmerArrowsState extends State<ShimmerArrows>
             );
           },
         ),
-        SpaceHeight(height: widget.spaceTop),
+        SpaceHeight(height: widget.spaceBottom),
       ],
     );
   }
@@ -78,7 +78,7 @@ class _ShimmerArrowsState extends State<ShimmerArrows>
 
 class _SlideGradientTransform extends GradientTransform {
   final double percent;
-  _SlideGradientTransform({required this.percent});
+  const _SlideGradientTransform({required this.percent});
 
   @override
   Matrix4 transform(Rect bounds, {TextDirection? textDirection}) {

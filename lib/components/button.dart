@@ -23,7 +23,7 @@ class GradientButton extends StatelessWidget {
       ),
       child: TextButton(
         style: ButtonStyle(
-          padding: MaterialStateProperty.all<EdgeInsets>(
+          padding: WidgetStateProperty.all<EdgeInsets>(
               const EdgeInsets.symmetric(horizontal: 60, vertical: 24)),
         ),
         onPressed: onPressed,

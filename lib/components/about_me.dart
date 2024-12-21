@@ -28,7 +28,7 @@ class AboutMeSection extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: AppSizes.spacingXs),
-                ...AppTexts.aboutMe.map(
+                ...AppTexts.aboutMe.description.map(
                   (paragraph) => Padding(
                     padding: const EdgeInsets.only(
                         bottom: 20.0, left: 33, right: 33),

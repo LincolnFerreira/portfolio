@@ -9,6 +9,7 @@ import 'package:portfolio/components/header_component.dart';
 import 'package:portfolio/components/mobile_session.dart';
 import 'package:portfolio/components/responsive/header.dart';
 import 'package:portfolio/components/shimmer_arrows.dart';
+import 'package:portfolio/core/device/device_utils.dart';
 import 'package:portfolio/core/seo/seo.dart';
 import 'package:portfolio/mocks/mobile_mock_data.dart';
 
@@ -32,18 +33,64 @@ class HomePage extends StatefulWidget implements Seo {
 class _HomePageState extends State<HomePage> {
   String selectedSection = 'Projetos';
   String selectedLanguage = 'PT';
+
   @override
   Widget build(BuildContext context) {
+    var isDesktop = DeviceUtility.isDesktop(context);
+
     return Scaffold(
       extendBody: true,
       extendBodyBehindAppBar: true,
       backgroundColor: const Color(0xff12171D),
-      appBar: Header(
-        onLanguageChanged: (p0) {},
-        onSectionChanged: (p0) {},
-        selectedLanguage: "",
-        selectedSection: "",
-      ),
+      drawer: !isDesktop
+          ? Drawer(
+              backgroundColor: Colors.amber,
+              // Add a ListView to the drawer. This ensures the user can scroll
+              // through the options in the drawer if there isn't enough vertical
+              // space to fit everything.
+              child: Container(
+                height: 200,
+                child: ListView(
+                  // Important: Remove any padding from the ListView.
+                  padding: EdgeInsets.zero,
+                  children: <Widget>[
+                    DrawerHeader(
+                      child: Text('Drawer Header'),
+                      decoration: BoxDecoration(
+                        color: Colors.blue,
+                      ),
+                    ),
+                    ListTile(
+                      title: Text('Item 1'),
+                      onTap: () {
+                        // Update the state of the app
+                        // ...
+                        // Then close the drawer
+                        Navigator.pop(context);
+                      },
+                    ),
+                    ListTile(
+                      title: Text('Item 2'),
+                      onTap: () {
+                        // Update the state of the app
+                        // ...
+                        // Then close the drawer
+                        Navigator.pop(context);
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            )
+          : null,
+      appBar: isDesktop
+          ? Header(
+              onLanguageChanged: (p0) {},
+              onSectionChanged: (p0) {},
+              selectedLanguage: "",
+              selectedSection: "",
+            )
+          : null,
       body: SingleChildScrollView(
         child: Stack(
           children: [

@@ -53,11 +53,21 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
               )
             : null,
         title: ResponsiveWidget(
-          mobileWidget: const Center(
-            child: Text('Mobile View'),
+          mobileWidget: AppBar(
+            backgroundColor: Colors.white,
+            iconTheme: IconThemeData(color: Colors.black),
+            title: Text(
+              'Portfolio',
+              style: TextStyle(color: Colors.black),
+            ),
           ),
-          tabletWidget: const Center(
-            child: Text('Tablet View'),
+          tabletWidget: AppBar(
+            backgroundColor: Colors.white,
+            iconTheme: IconThemeData(color: Colors.black),
+            title: Text(
+              'Portfolio',
+              style: TextStyle(color: Colors.black),
+            ),
           ),
           desktopWidget: Center(
             child: Align(

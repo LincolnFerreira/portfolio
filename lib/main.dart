@@ -29,14 +29,22 @@ class MyApp extends StatelessWidget {
         Locale('pt', ''), // Português
         // Adicione outros idiomas conforme necessário
       ],
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-          textTheme: AppTextTheme.textTheme,
-          scrollbarTheme: const ScrollbarThemeData().copyWith(
-            thumbColor: WidgetStateProperty.all(Colors.grey[500]),
-          )),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+        textTheme: AppTextTheme.textTheme,
+        scrollbarTheme: const ScrollbarThemeData().copyWith(
+          thumbColor: WidgetStateProperty.all(Colors.grey[500]),
+        ),
+        appBarTheme: const AppBarTheme(
+          iconTheme: IconThemeData(
+            color: Colors
+                .white, // Define a cor do ícone do menu hambúrguer como branco
+          ),
+        ),
+      ),
       routerConfig: Routers.router,
       builder: (context, child) => ResponsiveBreakpoints.builder(
         breakpoints: [

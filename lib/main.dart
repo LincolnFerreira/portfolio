@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:meta_seo/meta_seo.dart';
 import 'package:portfolio/core/theme/text_theme.dart';
-import 'package:portfolio/pages/routers.dart';
+import 'package:portfolio/components/atomic/pages/routers.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 void main() {

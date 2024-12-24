@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:meta_seo/meta_seo.dart';
-import 'package:portfolio/components/templates/home_template.dart';
+import 'package:portfolio/components/atomic/templates/home_template.dart';
 import 'package:portfolio/core/seo/seo.dart';
 
 class PortfolioPage extends StatefulWidget implements Seo {

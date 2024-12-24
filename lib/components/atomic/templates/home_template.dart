@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/components/circle_blur.dart';
-import 'package:portfolio/components/organisms/custom_drawer.dart';
-import 'package:portfolio/components/organisms/custom_header.dart';
-import 'package:portfolio/components/organisms/profile_component.dart';
-import 'package:portfolio/components/organisms/skills_component.dart';
+import 'package:portfolio/components/atomic/organisms/custom_drawer.dart';
+import 'package:portfolio/components/atomic/organisms/custom_header.dart';
+import 'package:portfolio/components/atomic/organisms/profile_component.dart';
+import 'package:portfolio/components/atomic/organisms/skills_component.dart';
 import 'package:portfolio/core/device/device_utils.dart';
 import 'package:portfolio/core/theme/sizes.dart';
 import 'package:portfolio/mocks/skills_mock_data.dart';
-import 'package:portfolio/pages/home_page.dart';
+import 'package:portfolio/components/atomic/pages/home_page.dart';
 
 class HomeTemplate extends StatelessWidget {
   final String selectedLanguage;

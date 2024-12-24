@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/theme/colors.dart';
-import 'package:portfolio/pages/home_page.dart';
+import 'package:portfolio/components/atomic/pages/home_page.dart';
 
 class ShimmerArrows extends StatefulWidget {
   final double spaceTop;

@@ -19,4 +19,5 @@ class AppSizes {
   static const double spacingMd = 36;
   static const double spacingLg = 36;
   static const double spacingXl = 36;
+  static const double spacing100 = 100;
 }

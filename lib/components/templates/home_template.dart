@@ -1,20 +1,46 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/components/atomic/atoms/custom_text.dart';
-import 'package:portfolio/components/atomic/molecules/language_toggle.dart';
 import 'package:portfolio/components/circle_blur.dart';
 import 'package:portfolio/components/organisms/custom_drawer.dart';
 import 'package:portfolio/components/organisms/custom_header.dart';
+import 'package:portfolio/components/organisms/profile_component.dart';
+import 'package:portfolio/components/organisms/skills_component.dart';
 import 'package:portfolio/core/device/device_utils.dart';
 import 'package:portfolio/core/theme/sizes.dart';
+import 'package:portfolio/mocks/skills_mock_data.dart';
+import 'package:portfolio/pages/home_page.dart';
 
 class HomeTemplate extends StatelessWidget {
   final String selectedLanguage;
   final void Function(String newLanguage) changeLanguage;
+  final String activeItem;
+  final Function() onTapHome;
+  final Function() onTapProjects;
+  final Function() onTapAboutMe;
+  final Function() onTapContact;
+  final String area;
+  final String name;
+  final String imageUrl;
+  final Function() onButtonPressed;
+  final Function() onTapGitHub;
+  final Function() onTapMedium;
+  final Function() onTapLinkedIn;
 
   const HomeTemplate({
     super.key,
     required this.selectedLanguage,
     required this.changeLanguage,
+    required this.activeItem,
+    required this.onTapHome,
+    required this.onTapProjects,
+    required this.onTapAboutMe,
+    required this.onTapContact,
+    required this.area,
+    required this.name,
+    required this.imageUrl,
+    required this.onButtonPressed,
+    required this.onTapGitHub,
+    required this.onTapMedium,
+    required this.onTapLinkedIn,
   });
 
   @override
@@ -29,31 +55,63 @@ class HomeTemplate extends StatelessWidget {
         isDesktop: isDesktop,
         selectedLanguage: selectedLanguage,
         changeLanguage: changeLanguage,
+        activeItem: activeItem,
+        onTapHome: onTapHome,
+        onTapProjects: onTapProjects,
+        onTapAboutMe: onTapAboutMe,
+        onTapContact: onTapContact,
       ),
-      drawer: !isDesktop ? const CustomDrawer() : null,
-      body: SingleChildScrollView(
-        child: Stack(
-          children: [
-            const CircleBlur(
-              verticalPercentage: 10,
-              horizontalPercentage: 76,
-            ),
-            const CircleBlur(
-              verticalPercentage: 90,
-              horizontalPercentage: -10,
-            ),
-            const CircleBlur(
-              verticalPercentage: 150,
-              horizontalPercentage: 50,
-            ),
-            Column(
-              children: [
-                const CustomText('Home Page'),
-                CustomText('Selected Language: $selectedLanguage'),
-              ],
+      drawer: !isDesktop
+          ? CustomDrawer(
+              isDesktop: isDesktop,
+              selectedLanguage: selectedLanguage,
+              changeLanguage: changeLanguage,
             )
-          ],
-        ),
+          : null,
+      body: Column(
+        children: [
+          Expanded(
+            child: SingleChildScrollView(
+              child: Stack(
+                children: [
+                  const CircleBlur(
+                    verticalPercentage: 10,
+                    horizontalPercentage: 80,
+                  ),
+                  const CircleBlur(
+                    verticalPercentage: 90,
+                    horizontalPercentage: -10,
+                  ),
+                  const CircleBlur(
+                    verticalPercentage: 150,
+                    horizontalPercentage: 50,
+                  ),
+                  Column(
+                    children: [
+                      const SpaceHeight(height: 112),
+                      ProfileComponent(
+                        area: area,
+                        name: name,
+                        onButtonPressed: onButtonPressed,
+                        imageUrl: imageUrl,
+                        onTapGitHub: onTapGitHub,
+                        onTapMedium: onTapMedium,
+                        onTapLinkedIn: onTapLinkedIn,
+                      ),
+                      SkillsComponent(
+                        skills: skillsMock,
+                        currentIndex: 0,
+                        paddingMargin: EdgeInsets.symmetric(
+                          horizontal: AppSizes.screenPadding,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

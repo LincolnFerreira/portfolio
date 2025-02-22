@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/components/atomic/molecules/language_toggle.dart';
-import 'package:portfolio/core/theme/sizes.dart';
+import '../../../core/theme/colors.dart';
 
 class CustomDrawer extends StatelessWidget {
   final bool isDesktop;
@@ -17,61 +16,54 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: Padding(
-        padding: const EdgeInsets.all(AppSizes.screenPadding),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-              child: Text(
-                'Menu',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                ),
+      child: ListView(
+        // Important: Remove any padding from the ListView.
+        padding: EdgeInsets.zero,
+        children: [
+          const DrawerHeader(
+            decoration: BoxDecoration(
+              color: AppColors.primary,
+            ),
+            child: Text(
+              'Menu',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 24,
               ),
             ),
-            ListTile(
-              leading: Icon(Icons.home),
-              title: Text('Home'),
-              onTap: () {
-                // Handle Home tap
-              },
+          ),
+          ListTile(
+            leading: const Icon(Icons.home),
+            title: const Text(
+              'Home',
+              style: TextStyle(color: Colors.black),
             ),
-            ListTile(
-              leading: Icon(Icons.work),
-              title: Text('Projects'),
-              onTap: () {
-                // Handle Projects tap
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.person),
-              title: Text('About Me'),
-              onTap: () {
-                // Handle About Me tap
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.contact_mail),
-              title: Text('Contact'),
-              onTap: () {
-                // Handle Contact tap
-              },
-            ),
-            Spacer(),
-            Align(
-              alignment: Alignment.centerRight,
-              child: LanguageToggle(
-                currentLanguage: selectedLanguage,
-                onLanguageChange: changeLanguage,
-              ),
-            ),
-          ],
-        ),
+            onTap: () {
+              // Handle Home tap
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.work),
+            title: const Text('Projects'),
+            onTap: () {
+              // Handle Projects tap
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.person),
+            title: const Text('About Me'),
+            onTap: () {
+              // Handle About Me tap
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.contact_mail),
+            title: const Text('Contact'),
+            onTap: () {
+              // Handle Contact tap
+            },
+          ),
+        ],
       ),
     );
   }

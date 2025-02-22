@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/app_icons_icons.dart';
-import 'package:portfolio/components/button.dart';
-import 'package:portfolio/core/theme/colors.dart';
+import '../app_icons_icons.dart';
+import 'button.dart';
+import '../core/theme/colors.dart';
 
 class HeaderComponent extends StatelessWidget {
   const HeaderComponent({Key? key}) : super(key: key);

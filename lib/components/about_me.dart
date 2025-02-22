@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/components/phase_uri.dart';
-import 'package:portfolio/core/app_texts.dart';
-import 'package:portfolio/core/theme/sizes.dart';
-import 'package:portfolio/core/theme/text_theme.dart';
+import 'phase_uri.dart';
+import '../core/app_texts.dart';
+import '../core/theme/sizes.dart';
+import '../core/theme/text_theme.dart';
 
 class AboutMeSection extends StatelessWidget {
   const AboutMeSection({super.key});

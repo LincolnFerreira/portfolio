@@ -1,15 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/components/circle_blur.dart';
-import 'package:portfolio/components/atomic/organisms/custom_drawer.dart';
-import 'package:portfolio/components/atomic/organisms/custom_header.dart';
-import 'package:portfolio/components/atomic/organisms/profile_component.dart';
-import 'package:portfolio/components/atomic/organisms/skills_component.dart';
-import 'package:portfolio/core/device/device_utils.dart';
-import 'package:portfolio/core/theme/sizes.dart';
-import 'package:portfolio/mocks/skills_mock_data.dart';
-import 'package:portfolio/components/atomic/pages/home_page.dart';
+import 'package:portfolio/components/atomic/organisms/carousel_without_package.dart';
+import '../organisms/about_me_section.dart';
+import '../organisms/certifications_section.dart';
+import '../organisms/footer.dart';
+import '../organisms/recommendations_section.dart';
+import '../../circle_blur.dart';
+import '../organisms/custom_drawer.dart';
+import '../organisms/custom_header.dart';
+import '../organisms/profile_component.dart';
+import '../organisms/skills_component.dart';
+import '../../mobile_portfolio_section.dart';
+import '../../mobile_session.dart';
+import '../../shimmer_arrows.dart';
+import '../../../core/device/device_utils.dart';
+import '../../../core/theme/sizes.dart';
+import '../../../mocks/mobile_mock_data.dart';
+import '../../../mocks/skills_mock_data.dart';
+import '../pages/home_page.dart';
 
-class HomeTemplate extends StatelessWidget {
+import '../organisms/backend_section.dart';
+import '../organisms/mobile_section.dart';
+
+class PortfolioTemplate extends StatelessWidget {
   final String selectedLanguage;
   final void Function(String newLanguage) changeLanguage;
   final String activeItem;
@@ -25,7 +37,7 @@ class HomeTemplate extends StatelessWidget {
   final Function() onTapMedium;
   final Function() onTapLinkedIn;
 
-  const HomeTemplate({
+  const PortfolioTemplate({
     super.key,
     required this.selectedLanguage,
     required this.changeLanguage,
@@ -49,6 +61,16 @@ class HomeTemplate extends StatelessWidget {
 
     return Scaffold(
       extendBody: true,
+      drawer: !isDesktop
+          ? Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CustomDrawer(
+                isDesktop: isDesktop,
+                selectedLanguage: selectedLanguage,
+                changeLanguage: changeLanguage,
+              ),
+            )
+          : null,
       extendBodyBehindAppBar: true,
       backgroundColor: const Color(0xff12171D),
       appBar: CustomHeader(
@@ -61,13 +83,6 @@ class HomeTemplate extends StatelessWidget {
         onTapAboutMe: onTapAboutMe,
         onTapContact: onTapContact,
       ),
-      drawer: !isDesktop
-          ? CustomDrawer(
-              isDesktop: isDesktop,
-              selectedLanguage: selectedLanguage,
-              changeLanguage: changeLanguage,
-            )
-          : null,
       body: Column(
         children: [
           Expanded(
@@ -101,10 +116,33 @@ class HomeTemplate extends StatelessWidget {
                       SkillsComponent(
                         skills: skillsMock,
                         currentIndex: 0,
-                        paddingMargin: EdgeInsets.symmetric(
+                        paddingMargin: const EdgeInsets.symmetric(
                           horizontal: AppSizes.screenPadding,
                         ),
                       ),
+
+                      const ShimmerArrows(
+                        spaceTop: AppSizes.spacing140,
+                        spaceBottom: AppSizes.spacing100,
+                      ),
+                      const AboutMeSection(
+                        paddingHorizontalComponent: AppSizes.screenPadding,
+                      ),
+                      const ShimmerArrows(
+                        spaceTop: AppSizes.spacing200,
+                        spaceBottom: AppSizes.spacing140,
+                      ),
+                      //TODO: refatorar para usar o componente de projetos responsivo
+                      // const MobileSection(),
+                      MobileSession(
+                        title: "Mobile",
+                        items: items,
+                        paddingHorizontalComponent: AppSizes.screenPadding,
+                      ),
+                      const BackendSection(),
+                      const CertificationsSection(),
+                      const RecommendationsSection(),
+                      const Footer()
                     ],
                   ),
                 ],

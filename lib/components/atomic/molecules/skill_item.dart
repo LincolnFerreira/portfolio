@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/theme/colors.dart';
+import '../../../core/theme/colors.dart';
 
 class SkillItem extends StatelessWidget {
   final String skill;

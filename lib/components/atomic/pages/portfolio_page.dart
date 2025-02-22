@@ -1,8 +1,9 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:meta_seo/meta_seo.dart';
-import 'package:portfolio/components/atomic/templates/home_template.dart';
-import 'package:portfolio/core/seo/seo.dart';
+import '../templates/portfolio_templates.dart';
+import '../../../core/seo/seo.dart';
 
 class PortfolioPage extends StatefulWidget implements Seo {
   const PortfolioPage({super.key, required this.title});
@@ -39,40 +40,56 @@ class _HomePageState extends State<PortfolioPage> {
 
   @override
   Widget build(BuildContext context) {
-    return HomeTemplate(
+    return PortfolioTemplate(
       selectedLanguage: selectedLanguage,
       changeLanguage: changeLanguage,
       activeItem: selectedSection,
       onTapHome: () {
         setActiveSection('Home');
-        print('Home tapped');
+        if (kDebugMode) {
+          print('Home tapped');
+        }
       },
       onTapProjects: () {
         setActiveSection('Projects');
-        print('Projects tapped');
+        if (kDebugMode) {
+          print('Projects tapped');
+        }
       },
       onTapAboutMe: () {
         setActiveSection('About Me');
-        print('About Me tapped');
+        if (kDebugMode) {
+          print('About Me tapped');
+        }
       },
       onTapContact: () {
         setActiveSection('Contact');
-        print('Contact tapped');
+        if (kDebugMode) {
+          print('Contact tapped');
+        }
       },
-      area: 'Back-end and Mobile Developer',
+      area: 'Desenvolvedor mobile/back-end',
       name: 'Lincoln Ferreira',
       imageUrl: 'https://example.com/your-photo.jpg',
       onButtonPressed: () {
-        print('Button pressed');
+        if (kDebugMode) {
+          print('Button pressed');
+        }
       },
       onTapGitHub: () {
-        print('GitHub tapped');
+        if (kDebugMode) {
+          print('GitHub tapped');
+        }
       },
       onTapMedium: () {
-        print('Medium tapped');
+        if (kDebugMode) {
+          print('Medium tapped');
+        }
       },
       onTapLinkedIn: () {
-        print('LinkedIn tapped');
+        if (kDebugMode) {
+          print('LinkedIn tapped');
+        }
       },
     );
   }

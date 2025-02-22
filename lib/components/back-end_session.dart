@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/components/skill_card_item.dart';
-import 'package:portfolio/core/theme/colors.dart';
-import 'package:portfolio/core/theme/sizes.dart';
+
+import '../core/theme/colors.dart';
+import '../core/theme/sizes.dart';
+import 'skill_card_item.dart';
 
 class BackEndSession extends StatelessWidget {
   const BackEndSession({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:portfolio/components/skill_card_item.dart';
+import 'skill_card_item.dart';
 
 class MobileSessionItem extends StatefulWidget {
   final String title;

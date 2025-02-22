@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/components/responsive/tablet.dart';
-import 'package:portfolio/core/theme/sizes.dart';
+import 'tablet.dart';
+import '../../core/theme/sizes.dart';
 
 class Layout extends StatelessWidget {
   const Layout({

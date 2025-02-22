@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/components/carousel_test.dart';
-import 'package:portfolio/components/mobile_session_item.dart';
-import 'package:portfolio/core/theme/sizes.dart';
+import 'carousel_test.dart';
+import 'mobile_session_item.dart';
+import '../core/theme/sizes.dart';
 
 class MobileSession extends StatefulWidget {
   final String title;
+  final double paddingHorizontalComponent;
+
   final List<MobileItemData> items;
 
   const MobileSession({
     super.key,
     required this.title,
     required this.items,
+    required this.paddingHorizontalComponent,
   });
 
   @override
@@ -38,49 +41,53 @@ class _MobileSessionState extends State<MobileSession> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(
-          widget.title,
-          style: const TextStyle(fontSize: 42),
-        ),
-        const SizedBox(height: AppSizes.spacingXs),
-        const FractionallySizedBox(
-          alignment: Alignment.center,
-          widthFactor: 0.5,
-          child: Text(
-            'Explore meus projetos móveis, com detalhes sobre arquitetura, stack tecnológica e funcionalidades, demonstrando minha experiência em criar soluções móveis completas e eficientes.',
-            style: TextStyle(fontSize: 18),
-            textAlign: TextAlign.center,
+    return Padding(
+      padding:
+          EdgeInsets.symmetric(horizontal: widget.paddingHorizontalComponent),
+      child: Column(
+        children: [
+          Text(
+            widget.title,
+            style: const TextStyle(fontSize: 42),
           ),
-        ),
-        const SizedBox(height: 100),
-        SizedBox(
-          height: 400,
-          child: Perspective3DCarousel(
-            items: widget.items,
-            selectedItem: _selectedItem,
-            onItemSelected: _handleItemSelected,
+          const SizedBox(height: AppSizes.spacingXs),
+          const FractionallySizedBox(
+            alignment: Alignment.center,
+            widthFactor: 0.5,
+            child: Text(
+              'Explore meus projetos móveis, com detalhes sobre arquitetura, stack tecnológica e funcionalidades, demonstrando minha experiência em criar soluções móveis completas e eficientes.',
+              style: TextStyle(fontSize: 18),
+              textAlign: TextAlign.center,
+            ),
           ),
-        ),
-        const SizedBox(height: 40),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: widget.items[_selectedItem].listMobileInformationData
-                .map((item) {
-              return MobileSessionItem(
-                title: item.title,
-                description: item.description,
-                iconPath: item.iconPath,
-                onTap: item.onTap,
-                images: item.imagesPath,
-              );
-            }).toList(),
+          const SizedBox(height: 100),
+          SizedBox(
+            height: 400,
+            child: Perspective3DCarousel(
+              items: widget.items,
+              selectedItem: _selectedItem,
+              onItemSelected: _handleItemSelected,
+            ),
           ),
-        ),
-      ],
+          const SizedBox(height: 40),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: widget.items[_selectedItem].listMobileInformationData
+                  .map((item) {
+                return MobileSessionItem(
+                  title: item.title,
+                  description: item.description,
+                  iconPath: item.iconPath,
+                  onTap: item.onTap,
+                  images: item.imagesPath,
+                );
+              }).toList(),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

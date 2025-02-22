@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/components/atomic/molecules/user_introduction.dart';
-import 'package:portfolio/components/atomic/molecules/avatar_with_social_media.dart';
-import 'package:portfolio/core/theme/sizes.dart';
+import 'package:portfolio/core/padding_utils.dart';
+import '../molecules/user_introduction.dart';
+import '../molecules/avatar_with_social_media.dart';
+import '../../../core/theme/sizes.dart';
+import '../../../core/device/device_utils.dart';
 
 class ProfileComponent extends StatelessWidget {
   final String area;
@@ -25,29 +27,35 @@ class ProfileComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    EdgeInsets padding = getPadding(context);
+
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: AppSizes.screenPadding,
-        vertical: AppSizes.spacing100,
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          // First item
-          UserIntroduction(
-            area: area,
-            name: name,
-            onButtonPressed: onButtonPressed,
-          ),
-          // Second item
-          AvatarWithSocialMedia(
-            imageUrl: imageUrl,
-            onTapGitHub: onTapGitHub,
-            onTapMedium: onTapMedium,
-            onTapLinkedIn: onTapLinkedIn,
-          ),
-        ],
-      ),
+      padding: padding,
+      child: DeviceUtility.isDesktop(context)
+          ? Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: _buildProfileWidgets(),
+            )
+          : Column(
+              spacing: 56,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: _buildProfileWidgets(),
+            ),
     );
+  }
+
+  List<Widget> _buildProfileWidgets() {
+    return [
+      UserIntroduction(
+        area: area,
+        name: name,
+      ),
+      AvatarWithSocialMedia(
+        imageUrl: imageUrl,
+        onTapGitHub: onTapGitHub,
+        onTapMedium: onTapMedium,
+        onTapLinkedIn: onTapLinkedIn,
+      ),
+    ];
   }
 }

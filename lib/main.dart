@@ -2,11 +2,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:meta_seo/meta_seo.dart';
-import 'package:portfolio/core/theme/text_theme.dart';
-import 'package:portfolio/components/atomic/pages/routers.dart';
+import 'components/atomic/pages/portfolio_page.dart';
+import 'core/theme/text_theme.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   if (kIsWeb) {
     MetaSEO().config();
   }
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
+    return MaterialApp(
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
@@ -45,16 +46,17 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      routerConfig: Routers.router,
       builder: (context, child) => ResponsiveBreakpoints.builder(
+        child: child!,
         breakpoints: [
           const Breakpoint(start: 0, end: 450, name: MOBILE),
           const Breakpoint(start: 451, end: 800, name: TABLET),
           const Breakpoint(start: 801, end: 1920, name: DESKTOP),
           const Breakpoint(start: 1921, end: double.infinity, name: '4K'),
         ],
-        child: child!,
       ),
+      initialRoute: "/",
+      home: const PortfolioPage(title: 'Home')..loadSEO(),
     );
   }
 }

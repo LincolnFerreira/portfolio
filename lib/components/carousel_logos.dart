@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/asset_path.dart';
+import '../core/asset_path.dart';
 
 class SkillsTab extends StatefulWidget {
   const SkillsTab({super.key});

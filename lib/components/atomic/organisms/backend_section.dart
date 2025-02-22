@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 
-class Footer extends StatelessWidget {
-  const Footer({super.key});
+class BackendSection extends StatelessWidget {
+  const BackendSection({super.key});
 
   @override
   Widget build(BuildContext context) {

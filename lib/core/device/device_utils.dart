@@ -1,7 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/widgets.dart';
-import 'package:portfolio/core/theme/sizes.dart';
+
+import '../theme/sizes.dart';
 
 class DeviceUtility {
   static const double appBarHeight = 56.0;

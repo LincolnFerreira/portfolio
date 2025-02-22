@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/components/custom_container.dart';
+import 'custom_container.dart';
 
 class ProjectDetails extends StatefulWidget {
   final List<Map<String, dynamic>> projects;

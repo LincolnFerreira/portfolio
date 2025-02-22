@@ -1,5 +1,5 @@
-import 'package:portfolio/components/mobile_session.dart';
-import 'package:portfolio/core/asset_path.dart';
+import '../components/mobile_session.dart';
+import '../core/asset_path.dart';
 
 final items = [
   MobileItemData(

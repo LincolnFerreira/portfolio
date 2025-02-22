@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:outline_gradient_button/outline_gradient_button.dart';
-import 'package:portfolio/app_icons_icons.dart';
-import 'package:portfolio/components/button.dart';
-import 'package:portfolio/components/header_component.dart';
+import '../app_icons_icons.dart';
+import 'button.dart';
+import 'header_component.dart';
 
 class CustomFooter extends StatelessWidget {
   const CustomFooter({super.key});

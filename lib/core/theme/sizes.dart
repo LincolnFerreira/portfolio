@@ -14,10 +14,17 @@ class AppSizes {
   static const double horizontalPadding = 20.0;
   static const double verticalPadding = 12.0;
 
-  static const double spacingXs = 20;
-  static const double spacingSm = 36;
-  static const double spacingMd = 36;
-  static const double spacingLg = 36;
-  static const double spacingXl = 36;
+  static const double spacingNone = 0; // Sem espaçamento
+  static const double spacingXs = 8; // Espaçamento extra pequeno
+  static const double spacingSm = 16; // Espaçamento pequeno
+  static const double spacingMd = 24; // Espaçamento médio
+  static const double spacingLg = 32; // Espaçamento grande
+  static const double spacingXl = 40; // Espaçamento extra grande
+  static const double spacingXl2 = 48; // Espaçamento extra extra grande
+  static const double spacingXl3 = 56; // Espaçamento extra extra extra grande
+  static const double spacingXl4 = 64; // Espaçamento massivo
+
   static const double spacing100 = 100;
+  static const double spacing140 = 140;
+  static const double spacing200 = 200;
 }

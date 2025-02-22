@@ -1,5 +1,5 @@
-import 'package:portfolio/core/asset_path.dart';
-import 'package:portfolio/core/entities/skill.dart';
+import '../core/asset_path.dart';
+import '../core/entities/skill.dart';
 
 final List<Skill> skillsMock = [
   Skill(

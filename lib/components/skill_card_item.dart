@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:portfolio/core/theme/colors.dart';
+import '../core/theme/colors.dart';
 
 class SkillCardItem extends StatelessWidget {
   final String image;

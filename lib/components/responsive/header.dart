@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/components/responsive/responsive.dart';
-import 'package:portfolio/core/app_texts.dart';
-import 'package:portfolio/core/device/device_utils.dart';
-import 'package:portfolio/core/theme/colors.dart';
-import 'package:portfolio/core/theme/sizes.dart';
-import 'package:responsive_framework/responsive_framework.dart';
+import 'responsive.dart';
+import '../../core/app_texts.dart';
+import '../../core/device/device_utils.dart';
+import '../../core/theme/colors.dart';
+import '../../core/theme/sizes.dart';
+// import 'package:responsive_framework/responsive_framework.dart';
 
 class Header extends StatelessWidget implements PreferredSizeWidget {
   final String selectedSection;
@@ -108,17 +108,17 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
         actions: [
           Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: ResponsiveValue(
-                context,
-                defaultValue: defaultTitleSpacing,
-                conditionalValues: [
-                  const Condition.smallerThan(
-                      name: TABLET, value: smallTitleSpacing),
-                  const Condition.largerThan(
-                      name: DESKTOP, value: largeTitleSpacing),
-                ],
-              ).value,
-            ),
+                // horizontal: ResponsiveValue(
+                //   context,
+                //   defaultValue: defaultTitleSpacing,
+                //   conditionalValues: [
+                //     const Condition.smallerThan(
+                //         name: TABLET, value: smallTitleSpacing),
+                //     const Condition.largerThan(
+                //         name: DESKTOP, value: largeTitleSpacing),
+                //   ],
+                // ).value,
+                ),
             child: Row(
               children: [
                 _languageButton('PT', selectedLanguage, context),

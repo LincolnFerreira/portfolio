@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
-import 'package:portfolio/components/atomic/atoms/custom_text.dart';
-import 'package:portfolio/core/theme/colors.dart';
-import 'package:portfolio/core/theme/sizes.dart';
+import '../atoms/custom_text.dart';
+import '../../../core/theme/colors.dart';
+import '../../../core/theme/sizes.dart';
 
 class LanguageToggle extends StatelessWidget {
   final String currentLanguage;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/components/atomic/molecules/language_toggle.dart';
-import 'package:portfolio/core/theme/colors.dart';
-import 'package:portfolio/core/theme/sizes.dart';
+import '../molecules/language_toggle.dart';
+import '../../../core/theme/colors.dart';
+import '../../../core/theme/sizes.dart';
 
 class CustomHeader extends StatelessWidget implements PreferredSizeWidget {
   final bool isDesktop;
